@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -21,6 +22,12 @@ public class LionTest {
         int kittens = lion.getKittens();
 
         assertEquals(1, kittens);
+    }
+
+    @Test
+    public void testTrueDoesHaveMane() throws Exception {
+        Lion lion = new Lion("Самец", new Feline());
+
         assertTrue(lion.doesHaveMane());
     }
 
@@ -30,9 +37,14 @@ public class LionTest {
         int kittens = lion.getKittens();
 
         assertEquals(1, kittens);
-        assertFalse(lion.doesHaveMane());
     }
 
+    @Test
+    public void testFalseDoesHaveMane() throws Exception {
+        Lion lion = new Lion("Самка", new Feline());
+
+        assertFalse(lion.doesHaveMane());
+    }
     @Test
     public void testEatMeat() throws Exception {
         List<String> mealList = List.of("Животные", "Птицы", "Рыба");
